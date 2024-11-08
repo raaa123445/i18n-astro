@@ -1,6 +1,11 @@
 ---
 // src/pages/index.astro
 import Base from '../../layouts/Base.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
 ---
 
 <Base>
@@ -78,7 +83,7 @@ import Base from '../../layouts/Base.astro';
       <h2 class="text-3xl font-semibold mb-4">ទំនាក់ទំនងជាមួយយើង</h2>
       <p class="text-xl mb-6">មានសំណួរឬត្រូវការជំនួយ? យើងនៅទីនេះដើម្បីជួយអ្នក!</p>
       <a 
-        href="/contact" 
+        href={`/${lang}/contact/`} 
         class="bg-white text-cyan-600 py-3 px-8 rounded-lg text-lg font-semibold hover:bg-cyan-600 hover:text-white transition-colors duration-300"
       >
         ទំនាក់ទំនងយើង
