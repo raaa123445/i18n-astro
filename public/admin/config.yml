@@ -1,17 +1,116 @@
-backend:
-  name: git-gateway 
-  branch: main 
+local_backend: true
 
-media_folder: "public/uploads"
-public_folder: "/uploads" 
+backend:
+  name: github
+  repo: micky-code/work-team
+  preview_context: 
+  use_graphql: true
+
+media_folder: "public/uploads" # Folder where images are stored
+public_folder: "/uploads"
+
+#site_url: "https://your-netlify-site-url.netlify.app" # Replace with your Netlify URL
+
+i18n:
+  structure: single_file
+  locales: ["en", "kh"]
+  default_locale: "en"
 
 collections:
+  - name: "menu"
+    label: "Menu"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/pages/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+
+      - label: "Products & Services"
+        name: "products_services"
+        file: "src/pages/products-services.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+
+
+      - label: "Education"
+        name: "education"
+        file: "src/pages/education.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+          - { label: "Details", name: "details", widget: "list", i18n: true, fields: [
+              { label: "Item", name: "item", widget: "string" },
+              { label: "Link", name: "link", widget: "string" }
+            ] }
+  
+      - label: "Enterprise"
+        name: "enterprise"
+        file: "src/pages/enterprise.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+          - { label: "Details", name: "details", widget: "list", i18n: true, fields: [
+              { label: "Item", name: "item", widget: "string" },
+              { label: "Link", name: "link", widget: "string" }
+            ] }
+
+      - label: "Custom Solution"
+        name: "custom_solution"
+        file: "src/pages/custom_solution.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+    
+      - label: "Outsourcing"
+        name: "outsourcing"
+        file: "src/pages/outsourcing.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+    
+  - name: "about_us"
+    label: "About Us"
+    files:
+      - label: "Company Profile"
+        name: "company_profile"
+        file: "src/pages/company_profile.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+      
+      - label: "Our Customers"
+        name: "our_customers"
+        file: "src/pages/our_customers.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Content", name: "content", widget: "markdown", i18n: true }
+      
+      - label: "Legal"
+        name: "legal"
+        file: "src/pages/legal.md"
+        fields:
+          - { label: "Privacy Policy", name: "privacy_policy", widget: "markdown", i18n: true }
+          - { label: "Terms and Conditions", name: "terms_conditions", widget: "markdown", i18n: true } 
+
   - name: "blog"
     label: "Blog"
-    folder: "src/content/blog" # Folder where blog posts are stored
+    folder: "src/posts"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Content", name: "body", widget: "markdown", i18n: true }
+
+
+  - label: "Contact Us"
+    name: "contact"
+    folder: "src/contact"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Contact Info", name: "contact_info", widget: "markdown", i18n: true }

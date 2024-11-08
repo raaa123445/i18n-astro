@@ -11,13 +11,15 @@ const t = useTranslations(lang);
   <li class="flex items-center space-x-2">
     <a href={`/${lang}/`} class="flex items-center space-x-2">
       <img 
-        src="../../public/po.png" 
+        src="../../../public/assets/lolo1.png" 
         alt="Company Logo" 
-        class="w-10 h-10 rounded-full transition-transform duration-200 hover:scale-110"
+        class="w-22 h-12 rounded-full transition-transform duration-200 hover:scale-110"
       />
-      <span class="text-xl font-bold text-gray-700 hover:text-cyan-500 transition-colors duration-200">Poscar</span>
+      <span class="text-xl font-bold bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-cyan-500 transition-colors duration-200">
+        
+      </span>
     </a>
-  </li>
+  </li>  
 
   <!-- Hamburger Icon for Mobile -->
   <button 
@@ -50,7 +52,7 @@ const t = useTranslations(lang);
     <!-- Products & Services with Mega Menu -->
     <div class="relative group">
       <a 
-        href="#" 
+        href={`/${lang}/product&services/`}
         class="text-gray-700 font-medium px-3 py-2 rounded-md transition duration-200 hover:bg-cyan-100 hover:text-cyan-600 focus:bg-cyan-100"
       >
         {t('nav.products_services')}
